@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <title>Formulario de Tarjeta de Crédito</title>
+</head>
+<body class="b_tarj">
+    <form class="form_t">
+        <label class="label_t" for="cardNumber">Número de Tarjeta:</label>
+        <input class="input_t" type="text" id="cardNumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+        <label class="label_t" for="cardHolder">Titular de la Tarjeta:</label>
+        <input class="input_t" type="text" id="cardHolder" name="cardHolder" placeholder="Nombre del Titular" required>
+
+        <label class="label_t" for="expiryDate">Fecha de Vencimiento:</label>
+        <input class="input_t" type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+
+        <label class="label_t" for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+
+        <button class = "button_t" type="submit">Enviar</button>
+    </form>
+</body>
+</html>

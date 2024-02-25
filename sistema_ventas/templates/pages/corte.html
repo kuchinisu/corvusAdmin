@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <title>corte de caja</title>
+</head>
+<body>
+    
+    <form action="{% url 'corte_realizado' %}" method="get">
+        <button id="realizar_corte">realizar corte</button>
+    <form>
+
+</body>
+</html>

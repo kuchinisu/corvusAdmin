@@ -1,0 +1,18 @@
+<div>
+    {% for pr in producto %}
+        {% if pr.imagen %}
+            <img src="{{ pr.imagen.url }}" alt="{{ pr.nombre }} - Imagen">
+            </img>
+        {% endif %}
+        <li>{{ pr.nombre }} - {{ pr.precio }} - {{ pr.cantidad }}</li>
+        <li> marca: {{ pr.marca }}  </li>
+        <li> {{ pr.descripcion }} </li>
+
+        <div> comprado </div>
+        
+
+        {% endfor %}
+       
+
+    
+</div>

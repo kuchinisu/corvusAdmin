@@ -1,0 +1,28 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    <div id="login-container">
+        <form action="{% url 'entrar' %}" method="GET">
+            <div class="form-group">
+                <label for="usuario">Nombre de usuario</label>
+                <input id="nombre_usuario" type="text" name="usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input id="contrase" type="password" name="contraseña">
+            </div>
+
+            <button id="iniciar_sesion" type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+</body>
+</html>

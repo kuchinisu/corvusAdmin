@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src= "{% static "JavaScript/imgBoton.js" %}"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="vnavbar">
+        <div id="usuario"> usuario </div>
+        {% if nombre %}
+            {% if como_cajero is true %}
+            
+                <div id="usuario_id" data-id="{{ id }}">{{ nombre }}</div>
+
+            
+            {% else %}
+            
+                <div id="usuario_id" data-id="{{ id }}">{{ nombre }}</div>
+
+            {% endif %}
+        {% else %}
+            <form action="{% url 'ainiciar' %}">
+            <button> iniciar secion </button>
+            </form>
+        {% endif %}
+        
+    </div>
+
+    <h3>categorias</h3>
+    <div id ="promociones" class="tablero">
+        <img class="imagen-botón" src='/static/img/enhw.jpg'></img>
+        <img class="imagen-botón" src='/static/img/alize.jpeg'></img>
+        <img class="imagen-botón" src='/static/img/pokemomo.jpg'></img>
+    </div>
+
+</body>
+</html>

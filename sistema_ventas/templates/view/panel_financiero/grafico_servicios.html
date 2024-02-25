@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container_serv">
+        <script src="{% static 'JavaScript/librerias/d3/d3.js' %}"></script>
+        <script src="{% static 'JavaScript/librerias/d3/plot.js' %}"></script>
+        <script type="module" src="{% static 'JavaScript/graficaPagoServicios.js' %}">
+        </script>
+
+    </div>
+
+    <div id="plot_serv">
+
+    </div>
+
+    <div id="lista_servicios">
+        {% for servicio in servicios %}
+            <div id = "servicio" data-servicio="{{ servicio.nombre }}" data-monto = "{{ servicio.monto }}"
+            data-meta = "{{ servicio.meta }}" data-fecha = "{{ servicio.fecha }}" data-desde="{{ servicio.a_partir_de }}"
+            data-atraso = "{{ servicio.dias_de_atraso }}"
+            ></div>
+        {% endfor %}
+    </div> 
+</body>
+</html>

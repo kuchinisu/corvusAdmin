@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <title>Panel financiero</title>
+
+</head>
+<body class="panel_financiero">
+    
+    <div id="datos">
+        {% for bolsa in bolsillo %}
+            <div id="dinero_b" class="dinero_b"> Ganancias netas a tus bolsillos: {{ bolsa.dinero }} </div>
+        {% endfor %}
+
+        {% for fuerte in caja_fuerte %}
+            <div id="caja_fuerte_" class="caja_fuerte_"> 
+                total resto en la caja fuerte: {{ fuerte.dinero }} 
+                <img id="icono_caja_fuerte" class="icono" src="/static/icon/caja_fuerte.png">
+            </div>
+        {% endfor %}
+
+        {% for c in caja %}
+            <div id="caja_" class="caja_"> 
+                actual cantidad en la caja: {{ c.dinero }}  
+                <img id="icono_caja_fuerte" class="icono" src="/static/icon/caja-registradora.png">
+            </div>
+        {% endfor %}
+
+    
+        <div id = "grafico_dias_de_ganancias">
+             {% include 'view/panel_financiero/grafico_dias_ganancia.html' %}
+        </div>
+        <div id="lista_de_dias">
+            {% for dia_g in dias_de_ganancia %}
+                
+                    <div id="dia" data-year="{{ dia_g.anio }}" 
+                        data-mes="{{ dia_g.mes }}" data-dia="{{ dia_g.dia }}" 
+                        data-ganancias="{{ dia_g.ganancias_netas }}">
+                        
+                    </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    <div>
+        {% include "view/panel_financiero/grafico_clientes_por_dia.html" %}
+    </div>
+    
+    
+    <div id = "datos_clientes_por_dia">
+        <div id = "lista_de_dias_clientes">
+            {% for dia_c in clientes_per_dia %}
+                <div id="dia_cliente" data-year="{{ dia_c.anio }}" 
+                data-mes="{{ dia_c.mes }}" data-dia="{{ dia_c.dia }}" 
+                data-clientes="{{ dia_c.cantidad_de_clientes }}"-></div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="datos_fechas_servicios">
+        
+        <h3 class="carpeta">Gráficos</h3>
+        <div id="graficos" class="graficos">
+        {% for grafica in graficas %}
+            <div class="grafico-container">
+            <img class="grafico" src="/static/img/graf/{{ grafica }}" alt="Descripción de la imagen">
+            </div>
+        {% endfor %}
+        </div>
+
+          
+        
+    
+    </div>
+
+</body>
+<script type="module" src="{% static 'JavaScript/librerias/d3/d3.js' %}"></script>
+<script type="module" src="{% static 'JavaScript/librerias/d3/plot.js' %}"></script>
+</html>

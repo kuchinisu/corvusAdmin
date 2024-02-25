@@ -1,0 +1,36 @@
+{% load static %}
+    
+    
+<div id="a_pagar">
+    <h1>Lista del carrito</h1>
+    <button id="pagar" class="pagar" onclick="cobrar()">realizar pago</button>
+    <block class="marca_total" id="marca_total">0</block>
+    <div class="productos_l" id="productos_l">
+        <ul class="productos_l_l" id="productos_l_l">
+
+        </ul>
+    </div>
+    
+</div>
+
+<div id="opciones_pago" style="display: none;">
+    <div id="efectivo">
+        
+        <div>pagar en efectivo</div>
+        <label id="dinero_pagado_label" for="dinero_pagado">cantidad pagada</label>
+        
+        <input type="text" id="dinero_pagado">
+        
+        <div id="cantidad_feria"></div>
+        
+        <button id="realizar_pago" class="realizar_pago" onclick="realizarCobro()">realizar pago</button>
+        <div id="aviso_falta_dinero" class="aviso_falta_dinero" style="display: none;">no alcanza a pagar</div>
+        <div id="aviso_falta_producto" class="aviso_falta_producto" style="display: none;">faltante de producto en el inventario </div>
+    </div>
+
+    <div id="tarjeta">
+        <div>pagar con tarjeta</div>
+        {% include "view/formulario_tarjeta.html" %}
+    </div>
+    
+</div>

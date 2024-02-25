@@ -1,0 +1,62 @@
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+    <script src= "{% static 'JavaScript/listaDeCompras.js' %}"></script>
+    <title>Tu Tienda</title>
+    
+</head>
+<body>
+
+<div class = "vnavbar">
+    <form action="{% url 'index' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar producto">
+        <button type="submit">Buscar</button>
+    </form>
+    {% for c_i in caja %}
+    <div id="caja_registradora">
+        <form action="{% url 'corte' %}" method="get">
+            <button>
+                <img class = "icono_caja" src = "\static\icon\caja-registradora.png"> </img>
+            </button>
+        </form>
+        <block> {{ c_i.dinero }} </block>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="lista_inc">
+    {% include 'view/lista_de_cobro.html' %}
+</div>
+
+<div id="productos">
+    {% for producto in productos %}
+        {% if producto.imagen %}
+            <div class="producto">
+                <img class="image_producto" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }} - Imagen">
+                <div class="info_producto">
+                    <a href="{% url 'producto'  producto.codigo %}">Ver</a>
+                    <ul>
+                        <li>{{ producto.nombre }} - {{ producto.precio }} - {{ producto.cantidad }}</li>
+                        <li>Marca: {{ producto.marca }}</li>
+                        <li>{{ producto.descripcion }}</li>
+                        <li>
+                            <button class="add_lista" onclick="addLista()" data-producto-codigo="{{ producto.codigo }}" data-producto-precio={{ producto.precio }} data-producto-imagen="{{ producto.imagen.url }}" data-producto-existencia="{{ producto.cantidad }}">
+                                Agregar a la lista
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+</div>
+<button id="izquierda">◀</button>
+<button id="derecha">▶</button>
+</body>
+</html>

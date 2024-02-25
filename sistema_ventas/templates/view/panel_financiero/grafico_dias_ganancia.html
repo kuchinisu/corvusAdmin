@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'style/estilo.css' %}">
+
+<h3>Ganancias netas por dia</h3>
+<div id="tarjeta_financiera" class = "area_dinanciera">
+
+    
+    <div id="container">
+        <script src="{% static 'JavaScript/librerias/d3/d3.js' %}"></script>
+        <script type="module" src="{% static 'JavaScript/finanzasGGananciasPD.js' %}">
+        </script>
+
+    </div>
+    
+   <div id = "detalles_ggpd" class="detalles_g">
+    
+        <lu id = "lista_ggpd" class="lista"> 
+            <!---->
+            
+            {% if sube_o_baja is true %}
+                <li><img class="icono" src='/static/icon/flecha-arriba.png'/> </li>
+                <li id = "li_ayer_hoy">+ {{ antier_hoy }} </li>
+            {% elif sube_o_baja is false %}
+                <li><img class="icono" src='/static/icon/flecha-hacia-abajo.png'/></li>
+                <li id = "li_ayer_hoy">- {{ antier_hoy }} </li>
+            {% else %}
+                <li> sin diferencias </li>
+            {% endif %}
+            <!---->
+            
+        </lu>
+
+   </div>
+
+</div>
