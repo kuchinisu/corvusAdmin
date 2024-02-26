@@ -16,20 +16,6 @@ button {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-gmp-map {
-  height: 100%;
-}
-
-gmp-advanced-marker{
-  color: aqua;
-}
-
-#map {
-  height: 100%;
-  width: 75%; 
-}
-
 button:hover {
   background-color: #2a2a2a;
   color: #ffffff;
@@ -81,8 +67,7 @@ img{
   padding: 20px;
   overflow-y: auto;
   transition: right 0.3s ease;
-  /*box-shadow: -5px 0 15px #8c886f;*/
-  box-shadow: -5px 0 15px #211b1b;
+  box-shadow: -5px 0 15px #8c886f;
 
 }
 
@@ -143,24 +128,101 @@ img{
   color: #555; 
 }
 
-/*área panel financiero*/
+/*área panel financiero  grafica datos*/
+
+/*tailwind*/
+.base {
+  background-color: #23242A;
+}
+.neutral-content {
+  background-color: #f9f7fd;
+}
+
+.base300 {
+  background-color:  #130b30;
+}
+
+.primary-content {
+  background-color: #13050e;
+}
+
+/*tailwind*/
+
+.contenedor_graf {
+  color: white;
+  
+}
+
+#datos {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 80px;
+}
 
 .panel_financiero {
-  background-color: #dbd3dc;
+  background-color: #1B113E;
 }
+/*background-color: #dbd3dc;*/
+.grafica {
+  border-radius: 4%;
+  margin-right: 10px;
+  
+}
+
 .dinero_b{
   background-color: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
   border-radius: 8px;
   margin: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 30px; 
   width: 310px; 
+  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  overflow: hidden;
 }
 
-.icono{
+.dinero_b:hover{
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-30px);
+  transform: scale(1.1); 
+
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* panel_financiero */
+.iconoAjust {
+  height: 95%;
+  width: 10%;
+}
+
+/* colores */
+.color1p { background-color: #d5d5d5 }
+.color2p { background-color: #e0e0e0 };
+.color3p { background-color: #eaeaea };
+.color4p { background-color: #f5f5f5 };
+.color5p { background-color: #ffffff };
+/* colores */
+
+.icono {
   width: 3%;
   height: 3%;;
+}
+
+.ganancia {
+  font-size: larger;
+  font-weight: 600;
+  color: rgb(0, 152, 46);
+}
+
+.perdida {
+  font-size: larger;
+  font-weight: 600;
+  color: rgb(231, 41, 3);
 }
 
 .vnavbar {

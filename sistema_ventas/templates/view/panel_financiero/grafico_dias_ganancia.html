@@ -6,7 +6,7 @@
 <div id="tarjeta_financiera" class = "area_dinanciera">
 
     
-    <div id="container">
+    <div id="container" class = "grafica"> <!--neutral-content-->
         <script src="{% static 'JavaScript/librerias/d3/d3.js' %}"></script>
         <script type="module" src="{% static 'JavaScript/finanzasGGananciasPD.js' %}">
         </script>
@@ -20,10 +20,10 @@
             
             {% if sube_o_baja is true %}
                 <li><img class="icono" src='/static/icon/flecha-arriba.png'/> </li>
-                <li id = "li_ayer_hoy">+ {{ antier_hoy }} </li>
+                <li id = "li_ayer_hoy" class="ganancia">+ {{ antier_hoy }} </li>
             {% elif sube_o_baja is false %}
                 <li><img class="icono" src='/static/icon/flecha-hacia-abajo.png'/></li>
-                <li id = "li_ayer_hoy">- {{ antier_hoy }} </li>
+                <li id = "li_ayer_hoy" class="perdida">- {{ antier_hoy }} </li>
             {% else %}
                 <li> sin diferencias </li>
             {% endif %}

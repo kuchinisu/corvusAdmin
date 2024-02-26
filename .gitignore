@@ -12,6 +12,7 @@ archivo_excel.xlsx
 __pycache__/
 static_root/
 meida/
+media/
 
 *.pyc
 *.pyo
